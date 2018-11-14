@@ -80,3 +80,14 @@ items:
         port: 2181
       selector:
         deploymentconfig: ${NAME}
+  - apiVersion: "v1"
+    kind: "PersistentVolumeClaim"
+    metadata:
+      name: "apache-kafka"
+    spec:
+      accessModes:
+        - "ReadWriteOnce"
+      resources:
+        requests:
+          storage: "15Gi"
+      volumeName: "kafka"
