@@ -85,8 +85,7 @@ items:
     metadata:
       name: ${NAME}
     spec:
-      accessModes:
-        - ReadWriteOnce
+      accessModes: ReadWriteOnce
       resources:
         requests:
           storage: 15Gi
