@@ -26,7 +26,7 @@ items:
     metadata:
       name: ${NAME}
     spec:
-      replicas: 1
+      replicas: 2
       selector:
         deploymentconfig: ${NAME}
       template:
@@ -89,5 +89,5 @@ items:
         - ReadWriteOnce
       resources:
         requests:
-          storage: 3Gi
+          storage: 10Gi
       volumeName: ${NAME}
