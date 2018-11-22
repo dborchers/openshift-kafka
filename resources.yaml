@@ -88,7 +88,7 @@ items:
   - apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
-      name: ${NAME}
+      name: ${NAME}-data
     spec:
       accessModes: 
         - ReadWriteOnce
