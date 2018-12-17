@@ -7,7 +7,7 @@ items:
 - apiVersion: v1
   kind: Template
   metadata:
-    name: apache-kafka
+    name: kafka
     annotations:
       description: 1-pod Apache Kafka
       tags: messaging,streaming,kafka
@@ -15,7 +15,7 @@ items:
   - name: NAME
     description: Name prefix for each object created
     required: true
-    value: apache-kafka
+    value: kafka
   - name: IMAGE
     description: Image with Apache Kafka and Apache ZooKeeper
     required: true
@@ -35,7 +35,7 @@ items:
             deploymentconfig: ${NAME}
         spec:
           containers:
-          - name: apache-kafka
+          - name: kafka
             image: ${IMAGE}
             command:
             - bin/kafka-server-start.sh
@@ -54,7 +54,7 @@ items:
               name: ${NAME}-data
             ports:
             - containerPort: 9092
-          - name: apache-zookeeper
+          - name: zookeeper
             image: ${IMAGE}
             command:
             - bin/zookeeper-server-start.sh
@@ -84,7 +84,15 @@ items:
       - name: zookeeper
         port: 2181
       selector:
-        deploymentconfig: ${NAME}
+        deploymentconfig: ${NAME}    
+  - apiVersion: v1
+    kind: Route
+    metadata:
+      name: '${NAME}'
+    spec:
+      to:
+        kind: Service
+        name: '${NAME}'
   - apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
