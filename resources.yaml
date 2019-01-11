@@ -39,7 +39,7 @@ items:
             image: ${IMAGE}
             env:
             - name: KAFKA_PORT
-              value: 9092
+              value: "9092"
             - name: KAFKA_ADVERTISED_HOST_NAME
               value: apache-kafka
             - name: KAFKA_CREATE_TOPICS
