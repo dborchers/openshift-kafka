@@ -44,9 +44,9 @@ items:
             - --override
             - advertised.host.name=${NAME}
             - --override
-            - log.segment.bytes=10485760
+            - log.segment.bytes=-1
             - --override
-            - log.retention.bytes=10485760
+            - log.retention.bytes=-1
             volumeMounts:
             - mountPath: /tmp/kafka-logs
               name: kafka-logs
