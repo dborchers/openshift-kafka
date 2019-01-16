@@ -50,7 +50,7 @@ items:
             volumeMounts:
             - mountPath: /tmp/kafka-logs
               name: kafka-logs
-            - mountPath: /var/lib/kafka
+            - mountPath: /opt/kafka
               name: ${NAME}-data
             ports:
             - containerPort: 9092
