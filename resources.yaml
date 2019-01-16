@@ -52,6 +52,8 @@ items:
             volumeMounts:
             - mountPath: /tmp/kafka-logs
               name: kafka-logs
+            - mountPath: /opt/kafka
+              name: ${NAME}-data
             ports:
             - containerPort: 9092
           - name: apache-zookeeper
@@ -66,11 +68,13 @@ items:
             ports:
             - containerPort: 2181
           volumes:
+          - name: kafka-logs
+            emptyDir: {}
           - name: zookeeper
             emptyDir: {}
-          - name: kafka-logs
+          - name: ${NAME}-data
             persistentVolumeClaim:
-              claimName: kafka-logs
+              claimName: ${NAME}-data
   - apiVersion: v1
     kind: Service
     metadata:
