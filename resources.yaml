@@ -88,7 +88,7 @@ items:
   - apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
-      name: kafka-logs
+      name: ${NAME}-data
     spec:
       accessModes: 
         - ReadWriteOnce
