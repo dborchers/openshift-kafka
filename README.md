@@ -2,8 +2,6 @@
 
 Run [Apache Kafka](https://kafka.apache.org/) and [Apache ZooKeeper](https://zookeeper.apache.org/) on [OpenShift v3](https://www.openshift.com/).
 
-This was developed for demonstration purposes. Use in environments where you do not need persistence in the face of failures or configuration tuning for scale.
-
 The architecture is as follows:
 
 * 1 pod containing a container for Apache Kafka and Apache ZooKeeper
